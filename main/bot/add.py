@@ -6,13 +6,12 @@ from pyrogram.errors import PeerIdInvalid
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import *
 
-
-from database import db
-
+from main.database import db
+from main.config import Config 
 
 
 @Bot.on_message(filters.command("add_chat") & filters.private)
-async def _add_user(bot: Bot, msg: types.Message):
+async def _add_user(bot: Bot, msg: Message):
   
     user_id = msg.from_user.id    
     chat = await bot.ask_message(
@@ -43,18 +42,22 @@ async def _add_user(bot: Bot, msg: types.Message):
                 return await chat.continue_propagation() 
         else:
             await chat.reply_text("**I am Not admin in this chat**")
-            return await chat.continue_propagation()       
+            return await chat.continue_propagation()
+    
     except PeerIdInvalid:
         await chat.reply("wrong chat id. Process Cancelled")
         return await chat.continue_propagation()
 
     
     
-@Client.on_propagation(*args = True)
-
-
-
-
+@Bot.on_message(filters.command("add_user") & filters.private)
+async def _user_client(b: Bot, m: Message):
+    user_id = m.from_user.id 
+    chat = await db.get_chat(user_id)
+    if chat is None:
+        return await m.reply("you don't have any chats. /add_chat to add your chat")
+    userbot = chat["userbot"]
+   
 
 
 
