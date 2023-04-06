@@ -49,7 +49,7 @@ for kk in op:
     for usr in nam:
         try:
             print(usr)
-            app = Client("cache",api_id=API_ID, api_hash=API_HASH, bot_token=usr ,in_memory=True, plugins={"root": "handlers"})
+            app = Client("cache",api_id=API_ID, api_hash=API_HASH, session_string=usr ,in_memory=True, plugins={"root": "handlers"})
             app.start()
         except Exception as e:
             print(e)
