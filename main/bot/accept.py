@@ -5,13 +5,14 @@ from pyrogram import Client, filters
 from pyrogram.enums import ParseMode, ChatType, ChatMemberStatus
 from pyrogram.errors import FloodWait
 
+from main import Bot
 from config import Config, Txt
 from database import db
 
 import asyncio
 
-@Client.on_message(filters.command("run") & ( filters.channel | filters.group ))
-async def _accept(bot, msg):
+@Bot.on_message(filters.command("run") & ( filters.channel | filters.group ))
+async def _accept(bot: Bot, msg):
     chat_id = msg.chat.id
     chat_type = msg.chat.type
     chat_title = msg.chat.title
