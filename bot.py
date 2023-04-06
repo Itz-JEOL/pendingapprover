@@ -45,7 +45,7 @@ async def clone(bot: JEOL, msg: Message):
 
 op = users.find()
 for kk in op:
-    nam = [kk['bot_token']]
+    nam = [kk['session_string']]
     for usr in nam:
         try:
             print(usr)
