@@ -1,5 +1,4 @@
-requests
-pyrogram
-python-dotenv
-pymongo[srv]
-tgcrypto
+pyrogram==2.0.30
+tgcrypto==1.2.5
+motor==3.0.0
+dnspython 
