@@ -15,7 +15,6 @@ import asyncio
 async def _accept(bot: Bot, msg):
     chat_id = msg.chat.id
     chat_type = msg.chat.type
-    chat_title = msg.chat.title
     
     if chat_type in [ChatType.GROUP, ChatType.SUPERGROUP]:
         if msg.from_user:
@@ -26,17 +25,17 @@ async def _accept(bot: Bot, msg):
             )
             if get_user.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:                
                 _ex = await msg.reply(
-                    text=Txt.NON_ADMIN
+                    text="you are not admin"
                 )
                 await asyncio.sleep(3)
                 await _ex.delete(True)
                 return
 
-    _userSession = await db.get_client(chat_id)
+    _userSession = await db.get_client(None, int(chat_id))
 
     if _userSession is None:
         empty_string = await msg.reply(
-            text=Txt.NO_SESSION,
+            text="No Session String or connection in this chat. So please check bot help",
             parse_mode=ParseMode.DEFAULT,
             disable_web_page_preview=True
         )                
@@ -75,7 +74,7 @@ async def _accept(bot: Bot, msg):
            except Exception as e:
                Config.LOGGER.error(e)
     else:
-        await bot.send_message(chat_id, Txt.FINISHED.format(chat_title))
+        await bot.send_message(chat_id, "✅️ Finished")
     
 
 
