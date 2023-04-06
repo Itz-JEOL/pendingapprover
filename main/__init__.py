@@ -2,14 +2,15 @@
 
 from pyrogram import Client
 from main.config import Config
-
+from pyropatch import listen 
 
 class Bot(Client): 
     def __init__(self):
         super().__init__(
             name="multi-accepter",
-            session_string=Config.BOT_SESSION,          
-            workers=100,
+            session_string=Config.BOT_SESSION,
+            plugins=dict(root="main/bot"),      
+            workers=500,
         )
      
     async def start(self):
