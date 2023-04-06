@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 
 
-@Client.on_message(filters.private & filters.command("start", "alive"), [".", "/"])
+@Client.on_message(filters.private & filters.command(["start", "alive"]), [".", "/"])
 async def start(client: Client, message: Message):
     await message.edit("Iam Alive \n\nPowered By @BETA_BOTZ \n\nSUBSCRIBE Youtube.com/@itzjeol")
 
