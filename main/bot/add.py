@@ -40,7 +40,10 @@ async def _add_user(bot: Bot, msg: types.Message):
                 return await chat.continue_propagation()
             else:             
                 await chat.reply("your channel is already added")
-                return await chat.continue_propagation()          
+                return await chat.continue_propagation() 
+        else:
+            await chat.reply_text("**I am Not admin in this chat**")
+            return await chat.continue_propagation()       
     except PeerIdInvalid:
         await chat.reply("wrong chat id. Process Cancelled")
         return await chat.continue_propagation()
