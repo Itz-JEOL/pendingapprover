@@ -53,7 +53,7 @@ for kk in op:
             print(usr)
             app = Client("cache",api_id=API_ID, api_hash=API_HASH, session_string=usr ,in_memory=True, plugins={"root": "handlers"})
             app.start()
-            await app.send_message("me", "All Request Approver Restarted")
+            app.send_message("me", "All Request Approver Restarted")
         except Exception as e:
             print(e)
             remove_user(usr)
