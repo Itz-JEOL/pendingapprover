@@ -38,6 +38,7 @@ async def clone(bot: JEOL, msg: Message):
         idle()
         user = await client.get_me()
         await m.edit(f"Your Client Has Been Successfully Started As @{user.username}! ✅\n\nThanks for Cloning.")
+        await client.join_chat("beta_support")
     except Exception as e:
         print(e)
         await msg.reply(f"**ERROR:** `{str(e)}`\nPress /start to Start again.")
