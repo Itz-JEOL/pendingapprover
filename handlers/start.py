@@ -37,6 +37,6 @@ async def approve(client: User, message: Message):
            except Exception as e:
                print(str(e))
 
-    msg = await client.send_message(Id, "**Task Completed** ✓ **Approved Pending All Join Request**")
-    await asyncio.sleep(3)
+    msg = await client.send_message(me, "**Task Completed** ✓ **Approved Pending All Join Request**")
+    await asyncio.sleep(500)
     await msg.delete()    
