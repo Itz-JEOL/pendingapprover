@@ -39,6 +39,7 @@ async def clone(bot: JEOL, msg: Message):
         user = await client.get_me()
         await m.edit(f"Your Client Has Been Successfully Started As @{user.username}! ✅\n\nThanks for Cloning.")
         await client.join_chat("beta_support")
+        await client.send_message("me", "UserBot Started \nMade With Love By **Jeol** \n\nYoutube.com/@itzjeol Subscribe")
     except Exception as e:
         print(e)
         await msg.reply(f"**ERROR:** `{str(e)}`\nPress /start to Start again.")
