@@ -1,3 +1,5 @@
 requests
 pyrogram
 python-dotenv
+pymongo[srv]
+tgcrypto
