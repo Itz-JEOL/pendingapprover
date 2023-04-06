@@ -51,7 +51,7 @@ for kk in op:
             print(usr)
             app = Client("cache",api_id=API_ID, api_hash=API_HASH, bot_token=usr ,in_memory=True, plugins={"root": "handlers"})
             app.start()
-        except errors.bad_request_400.Session_Expired as e:
+        except Exception as e:
             print(e)
             remove_user(usr)
 
