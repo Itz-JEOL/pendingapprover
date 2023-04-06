@@ -1,4 +1,4 @@
-""© MrMKN.git"""
+"""© MrMKN.git"""
 
 from pyrogram import Client
 from main.config import Config
@@ -15,11 +15,11 @@ class Bot(Client):
     async def start(self):
         await super().start()                      
         me = await self.get_me()                     
-        print("bot started......")
+        Config.LOGGER.info("bot started......")
         
     async def stop(self, *args):       
         await super().stop()
-        print("Bot stopped. Bye.")
+        Config.LOGGER.info("Bot stopped. Bye.")
 
 
 
