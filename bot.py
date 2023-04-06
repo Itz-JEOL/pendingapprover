@@ -10,9 +10,9 @@ from database import *
 #os.system("pip install ffmpeg -y")
 
 
-API_ID = ""
-API_HASH = ""
-TOKEN = ""
+API_ID = "14417186"
+API_HASH = "21731d919d79f78de24bdf1f6ccd6921"
+TOKEN = "5989405319:AAEqwAGfViL0aNNykXvX0D-bPRnxQc968zQ"
 
 JEOL = Client("JPYRO", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
