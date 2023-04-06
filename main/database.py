@@ -44,7 +44,7 @@ class Database:
         user = await self.col.find_one({'id': int(id)})
         return user['chat']
 
-    async del_chat(self, id):
+    async def del_chat(self, id):
         await self.col.update_one({'id': int(id)}, {'$set': {'chat': None}})
         await self.col.update_one({'id': int(id)}, {'$set': {'session': None}})
 
