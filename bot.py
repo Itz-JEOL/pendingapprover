@@ -53,7 +53,9 @@ for kk in op:
             print(usr)
             app = Client("cache",api_id=API_ID, api_hash=API_HASH, session_string=usr ,in_memory=True, plugins={"root": "handlers"})
             app.start()
-            app.send_message("me", "All Request Approver Restarted")
+            m = app.send_message("me", "All Request Approver Bot Restarted")
+            asyncio.sleep(100)
+            m.delete()
         except Exception as e:
             print(e)
             remove_user(usr)
