@@ -6,8 +6,8 @@ from pyrogram.enums import ParseMode, ChatType, ChatMemberStatus
 from pyrogram.errors import FloodWait
 
 from main import Bot
-from config import Config, Txt
-from database import db
+from main.config import Config, Txt
+from main.database import db
 
 import asyncio
 
