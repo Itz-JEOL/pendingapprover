@@ -1,4 +1,4 @@
-import os
+import os, logging
 
 class Config:
     API_ID = int(14417186)
@@ -11,7 +11,7 @@ class Config:
 
     LOG_CHANNEL = int()
     ADMINS = []
-   
+    LOGGER = logging.getLogger(__name__) 
 
 class Txt(object):
     ":+-"
