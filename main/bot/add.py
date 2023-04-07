@@ -5,7 +5,7 @@ from pyrogram import filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import *
-
+from main import Bot
 from main.database import db
 from main.config import Config 
 from main import Bot
