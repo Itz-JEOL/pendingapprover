@@ -1,8 +1,6 @@
 import motor.motor_asyncio
 from main.config import Config
 
-DB_URL = "mongodb+srv://MONGOO:MONGOO@cluster0.0a5cpqh.mongodb.net/?retryWrites=true&w=majority"        
-DB_NAME = "Itz-Jeol"
 
 class Database:
     
