@@ -8,7 +8,7 @@ from pyrogram.types import *
 
 from main.database import db
 from main.config import Config 
-
+from main import Bot
 
 @Bot.on_message(filters.command("add_chat") & filters.private)
 async def _add_user(bot: Bot, msg: Message):
