@@ -39,7 +39,7 @@ class Database:
         await self.col.update_one({'id': int(id)}, {'$set': {'chat': int(chat)}})
  
     async def get_chat(self, id):
-        return await self.col.find_one({'id': int(id)})['chat']
+        return await self.col.find_one({'id': int(id)})
        
     async def del_chat(self, id):
         await self.col.update_one({'id': int(id)}, {'$set': {'chat': None}})
