@@ -13,7 +13,7 @@ async def stats(b, m):
 
 
 
-@Bot.on_message(filters.command("update") & filter.user(Config.ADMINS))      
+@Bot.on_message(filters.command("update") & filters.user(Config.ADMINS))      
 async def bot_up(b, m):
     await m.reply_text("Updating........")
     os.system("git pull")
