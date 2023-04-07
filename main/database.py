@@ -39,9 +39,8 @@ class Database:
         await self.col.update_one({'id': int(id)}, {'$set': {'chat': int(chat)}})
  
     async def get_chat(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user['chat']
-
+        return await self.col.find_one({'id': int(id)})['chat']
+       
     async def del_chat(self, id):
         await self.col.update_one({'id': int(id)}, {'$set': {'chat': None}})
         await self.col.update_one({'id': int(id)}, {'$set': {'session': None}})
@@ -50,8 +49,8 @@ class Database:
         await self.col.update_one({'id': int(id)}, {'$set': {'session': session}})
 
     async def get_client(self, id, chat):
-        user = await self.col.find_one({'id': int(id), 'chat': int(chat)} if id else {'chat': int(chat)})
-        return user['session']
+        return await self.col.find_one({'id': int(id), 'chat': int(chat)} if id else {'chat': int(chat)})['session']                             
+        
 
 
 db = Database()
