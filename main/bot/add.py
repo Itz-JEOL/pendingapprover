@@ -27,23 +27,24 @@ async def _add_user(bot: Bot, msg: Message):
   
     try:
         chat_id = int(chat.text)
-        m_st = await bot.get_chat_member(chat_id, user_id)
-        if m_st.status == ChatMemberStatus.MEMBER:
-            return await msg.reply_text("**you're not admin in this chat**")
-        b_st = await bot.get_chat_member(chat_id, "me")
-        if b_st.status == ChatMemberStatus.ADMINISTRATOR:
-            get_chat = await bot.get_chat(chat_id)
-            added = await db.add_chat(user_id, get_chat.id)
-            if added:
-                await chat.reply_text("✅️ Your Channel Added")
-                return await chat.continue_propagation()
-            else:             
-                await chat.reply("your channel is already added")
-                return await chat.continue_propagation() 
-        else:
+        try:
+            m_st = await bot.get_chat_member(chat_id, user_id)
+        except:
             await chat.reply_text("**I am Not admin in this chat**")
             return await chat.continue_propagation()
     
+        if m_st.status == ChatMemberStatus.MEMBER:
+            return await msg.reply_text("**you're not admin in this chat**")
+        
+        get_chat = await bot.get_chat(chat_id)
+        added = await db.add_chat(user_id, get_chat.id)
+        if added:
+            await chat.reply_text("✅️ Your Channel Added")
+            return await chat.continue_propagation()
+        else:             
+            await chat.reply("your channel is already added")
+            return await chat.continue_propagation() 
+                    
     except PeerIdInvalid:
         await chat.reply("wrong chat id. Process Cancelled")
         return await chat.continue_propagation()
