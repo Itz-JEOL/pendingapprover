@@ -15,9 +15,10 @@ async def stats(b, m):
 
 @Bot.on_message(filters.command("update") & filters.user(Config.ADMINS))      
 async def bot_up(b, m):
-    await m.reply_text("Updating........")
+    a = await m.reply_text("Updating........")
     os.system("git pull")
-    asyncio.sleep(1)
+    await asyncio.sleep(1)
+    await a.edit("Done")
     os.execl(sys.executable, sys.executable, "-m", "main")
  
 
