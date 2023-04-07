@@ -53,7 +53,7 @@ class Database:
 
     async def get_client(self, id, chat):
         user = await self.col.find_one({'id': int(id), 'chat': int(chat)} if id else {'chat': int(chat)})
-        return user.['session']
+        return user['session']
 
 
 db = Database()
