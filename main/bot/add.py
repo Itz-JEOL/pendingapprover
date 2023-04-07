@@ -13,8 +13,9 @@ from main import Bot
 @Bot.on_message(filters.command("add_chat") & filters.private)
 async def _add_user(bot: Bot, msg: Message):
   
-    user_id = msg.from_user.id 
-    if await db.get_chat(user_id) is not None:
+    user_id = msg.from_user.id
+    already = db.get_chat(user_id) 
+    if await already['chat'] is not None:
         return await msg.reply_text("sorry you have already a connection")
 
     chat = await bot.ask_message(
