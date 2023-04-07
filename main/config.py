@@ -9,8 +9,8 @@ class Config:
     DB_URL = "mongodb+srv://MONGOO:MONGOO@cluster0.0a5cpqh.mongodb.net/?retryWrites=true&w=majority"
     DB_NAME = "anything"
 
-    LOG_CHANNEL = int()
-    ADMINS = []
+    LOG_CHANNEL = None
+    ADMINS = [5652656279, 5558249587]
     LOGGER = logging.getLogger(__name__) 
 
 class Txt(object):
