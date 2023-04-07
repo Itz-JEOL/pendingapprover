@@ -21,8 +21,8 @@ async def bot_up(b, m):
     os.execl(sys.executable, sys.executable, "-m", "main")
  
 
-@Bo.on_message(filters.command("restart") & filters.user(Config.ADMINS))
+@Bot.on_message(filters.command("restart") & filters.user(Config.ADMINS))
 async def restart(b, m):
-   await m.reply("restating.........")
-   os.execl(sys.executable, sys.executable, "-m", "main")
+    await m.reply("restating.........")
+    os.execl(sys.executable, sys.executable, "-m", "main")
  
