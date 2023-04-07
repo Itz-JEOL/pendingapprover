@@ -13,7 +13,10 @@ from main import Bot
 @Bot.on_message(filters.command("add_chat") & filters.private)
 async def _add_user(bot: Bot, msg: Message):
   
-    user_id = msg.from_user.id    
+    user_id = msg.from_user.id 
+    if await db.get_chat(user_id) is not None:
+        return await msg.reply_text("sorry you have already a connection")
+
     chat = await bot.ask_message(
         chat_id=user_id,
         text="please send your (channel / group) id",       
@@ -34,17 +37,14 @@ async def _add_user(bot: Bot, msg: Message):
             return await chat.continue_propagation()
     
         if m_st.status == ChatMemberStatus.MEMBER:
-            return await msg.reply_text("**you're not admin in this chat**")
-        
+            await msg.reply_text("**you're not admin in this chat**")
+            return await chat.continue_propagation()
+
         get_chat = await bot.get_chat(chat_id)
         await db.add_chat(user_id, get_chat.id)
         await chat.reply_text("✅️ Your Channel Added")
         return await chat.continue_propagation()
-
                   
-        #await chat.reply("your channel is already added")
-        #return await chat.continue_propagation() 
-                    
     except PeerIdInvalid:
         await chat.reply("wrong chat id. Process Cancelled")
         return await chat.continue_propagation()
