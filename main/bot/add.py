@@ -15,8 +15,8 @@ async def _add_user(bot: Bot, msg: Message):
   
     user_id = msg.from_user.id
     already = await db.get_chat(user_id) 
-    if await already.get['chat'] is not None:
-        return await msg.reply_text("sorry you have already a connection")
+    if await already is not None:
+        return await msg.reply_text(f"sorry you have already a connection of {already}")
 
     chat = await bot.ask_message(
         chat_id=user_id,
