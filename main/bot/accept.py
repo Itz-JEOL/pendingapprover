@@ -19,7 +19,7 @@ async def _accept(bot: Bot, msg):
     if chat_type in [ChatType.GROUP, ChatType.SUPERGROUP]:
         if msg.from_user:
             user = msg.from_user.id 
-            get_user = await client.get_chat_member(
+            get_user = await bot.get_chat_member(
                 chat_id=chat_id,
                 user_id=user
             )
@@ -48,11 +48,16 @@ async def _accept(bot: Bot, msg):
             name=":memory:",
             session_string=_userSession,
             in_memory=True
-        )
+        )        
     except Exception as e:
         Config.LOGGER.error(e)
         await msg.reply_text(e)
         return
+    try:
+        await UserBot.connect()
+    except ConnectionError:
+        await UserBot.disconnect()
+        await UserBot.connect()
 
     try:
        while True: # create loop is better techniq 🙃
