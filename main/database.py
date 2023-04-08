@@ -50,7 +50,8 @@ class Database:
         await self.col.update_one({'id': int(id)}, {'$set': {'session': session}})
 
     async def get_client(self, id, chat):
-        return await self.col.find_one({'id': int(id), 'chat': int(chat)} if id else {'chat': int(chat)})['session']                             
+        _c = await self.col.find_one({'id': int(id), 'chat': int(chat)} if id else {'chat': int(chat)})               
+        return _c.get('session', None)                           
         
 
 
