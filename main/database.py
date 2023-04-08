@@ -42,11 +42,7 @@ class Database:
         user = await self.col.find_one({'id': int(id)})
         return user.get("chat", None)
        
-    async def del_chat(self, id):
-        await self.col.update_one({'id': int(id)}, {'$set': {'chat': None}})
-        await self.col.update_one({'id': int(id)}, {'$set': {'session': None}})
-
-    async def set_client(self, id, session):
+    async def add_client(self, id, session):
         await self.col.update_one({'id': int(id)}, {'$set': {'session': session}})
 
     async def get_client(self, id, chat):
