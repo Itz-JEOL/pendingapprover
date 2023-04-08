@@ -78,11 +78,12 @@ async def _accept(bot: Bot, msg):
                await UserBot.approve_all_chat_join_requests(chat_id) 
            except Exception as e:
                Config.LOGGER.error(e)
-    else:
-        await bot.send_message(chat_id, "✅️ Finished")
-    
 
-
+    snd = await bot.send_message(chat_id, "✅️ Finished")
+    await asyncio.sleep(5)
+    await msg.delete(True)
+    await snd.delete(True)
+    return await UserBot.disconnect()
 
 
 
