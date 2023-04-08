@@ -58,8 +58,15 @@ async def _user_client(b: Bot, m: Message):
     chat = await db.get_chat(user_id)
     if chat is None:
         return await m.reply("you don't have any chats. /add_chat to add your chat")
-    userbot = chat["userbot"]
-   
+
+    _a_user = await db.get_client(int(user_id), int(chat))
+   if _a_user is not None:
+       return await m.reply("you have already a userBot")
+
+   ask = await b.ask_id(user_id, "please send your user session")
+  
+   await db.add_client(user_id, ask.text)
+   return await ask.reply("done ✅️")
 
 
 
