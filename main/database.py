@@ -57,3 +57,13 @@ class Database:
 db = Database()
 
 
+
+async def add_user(id):
+    if not await db.is_user_exist(int(id)):
+        await db.add_user(int(id))
+
+
+
+
+
+
