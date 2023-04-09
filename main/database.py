@@ -17,8 +17,9 @@ class Database:
         )
 
     async def add_user(self, id):
-        user = self.new_user(id)
-        await self.col.insert_one(user)
+        if not await self.is_user_exist(int(id)):
+            user = self.new_user(id)
+            await self.col.insert_one(user)
 
     async def is_user_exist(self, id):
         user = await self.col.find_one({'id': int(id)})
@@ -49,15 +50,13 @@ class Database:
         _c = await self.col.find_one({'id': int(id), 'chat': int(chat)} if id else {'chat': int(chat)})               
         return _c.get('session', None)                           
         
-
+    
 
 db = Database()
 
 
 
-async def add_user(id):
-    if not await db.is_user_exist(int(id)):
-        await db.add_user(int(id))
+
 
 
 
