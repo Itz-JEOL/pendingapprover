@@ -23,7 +23,7 @@ async def main_cb_(bot, cb):
 
     elif data == "start":
        user = msg.from_user
-       await msg.edit_text("""Hai {user.mention} 
+       await msg.edit_text(f"""Hai {user.mention} 
 Iam An Advanced Bot With Awesome Features
 • I can Auto Approve Join Requests
 • I can Approve Pending Old Join Requests
