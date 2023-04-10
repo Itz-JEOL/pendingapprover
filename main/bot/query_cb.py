@@ -51,9 +51,12 @@ Iam An Advanced Bot With Awesome Features
 ✯ DATABASE : MONGODB
 ✯ SERVER : HEROKU""",
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("👤 SUPPORT", url="https://t.me/BETA_SUPPORT"),
-            InlineKeyboardButton("📯 UPDATES", url="https://t.me/Beta_BoTZ")
+            InlineKeyboardButton("SUPPORT", url="https://t.me/BETA_SUPPORT"),
+            InlineKeyboardButton("UPDATES", url="https://t.me/Beta_BoTZ")
+            ],[            
+            InlineKeyboardButton("🔙 BACK", callback_data="start"),
         ]])
+        disable_web_page_preview=True
     )
 
     elif data == "addchat":
