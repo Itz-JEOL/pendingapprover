@@ -17,10 +17,10 @@ async def _start(b, m):
     await m.reply(
         text=f"""Hai {user.mention} 💞""",
         reply_markup=button=InlineKeyboardMarkup([[
-        InlineKeyboardButton("👤 SUPPORT", url="https://t.me/BETA_SUPPORT"),
-        InlineKeyboardButton("📯 UPDATES", url="https://t.me/Beta_BoTZ")
-        ],[            
-        InlineKeyboardButton("⚙️SETTINGS", callback_data="settings"),
-        InlineKeyboardButton("🧿 ABOUT", callback_data="about") 
-    ]])
+            InlineKeyboardButton("👤 SUPPORT", url="https://t.me/BETA_SUPPORT"),
+            InlineKeyboardButton("📯 UPDATES", url="https://t.me/Beta_BoTZ")
+            ],[            
+            InlineKeyboardButton("⚙️SETTINGS", callback_data="settings"),
+            InlineKeyboardButton("🧿 ABOUT", callback_data="about") 
+        ]])
     ) 
