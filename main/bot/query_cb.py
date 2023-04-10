@@ -38,8 +38,7 @@ Iam An Advanced Bot With Awesome Features
    
     elif data == "settings":
         user = msg.from_user
-        await msg.edit_text(f"""Hey {user.mention}
-Change And SetUp Your Settings Here""",
+        await msg.edit_text(f"""Change And SetUp Your Settings Here""",
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("CHATS", callback_data="chats"),
             InlineKeyboardButton("USER", callback_data="user")
