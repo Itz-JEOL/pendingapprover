@@ -45,7 +45,7 @@ Change And SetUp Your Settings Here""",
             ],[            
             InlineKeyboardButton("↩️ BACK", callback_data="start"),
         ]]),
-    ))
+    )
 
     elif data == "about":
         me = await bot.get_me()
