@@ -11,9 +11,7 @@ from main.config import Config
 @Bot.on_message(filters.command("start") & filters.private)
 async def _start(b, m):
     user = m.from_user
-  
     await db.add_user(user.id)
-
     await m.reply(
         text=f"""Hai {user.mention} 
 Iam An Advanced Bot With Awesome Features
