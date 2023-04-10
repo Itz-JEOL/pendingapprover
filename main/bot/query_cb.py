@@ -55,7 +55,7 @@ Iam An Advanced Bot With Awesome Features
             InlineKeyboardButton("UPDATES", url="https://t.me/Beta_BoTZ")
             ],[            
             InlineKeyboardButton("🔙 BACK", callback_data="start"),
-        ]])
+        ]]),
         disable_web_page_preview=True
     )
 
