@@ -43,7 +43,7 @@ Iam An Advanced Bot With Awesome Features
     elif data == "about":
         me = await bot.get_me()
         mention = me.mention
-       await msg.edit_text(f"""✯ MY NAME : {mention}
+        await msg.edit_text(f"""✯ MY NAME : {mention}
 ✯ CREATOR : <a href=https://t.me/JEOL_TG>𝙅𝙀𝙊𝙇</a>
 ✯ DEVELOPER : <a href=https://t.me/mr_MKN>𝙈𝙧.𝙈𝙆𝙉 𝙏𝙂</a>
 ✯ LIBRARY : : PYROGRAM
