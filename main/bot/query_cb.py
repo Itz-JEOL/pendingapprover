@@ -36,11 +36,19 @@ Iam An Advanced Bot With Awesome Features
         ]])
     ) 
    
-    elif data == "help":
+    elif data == "settings":
        await msg.edit_text("")
 
     elif data == "about":
-       await msg.edit_text("")
+        me = await bot.get_me()
+        mention = me.mention
+       await msg.edit_text("""✯ MY NAME : {mention}
+✯ CREATOR : <a href=https://t.me/JEOL_TG>𝙅𝙀𝙊𝙇</a>
+✯ DEVELOPER : <a href=https://t.me/mr_MKN>𝙈𝙧.𝙈𝙆𝙉 𝙏𝙂</a>
+✯ LIBRARY : : PYROGRAM
+✯ LANGUAGE : PYTHON3
+✯ DATABASE : MONGODB
+✯ SERVER : HEROKU""")
 
     elif data == "addchat":
        await msg.edit_text("")
