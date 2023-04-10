@@ -22,6 +22,7 @@ async def main_cb_(bot, cb):
            Config.LOGGER.error(e)
 
     elif data == "start":
+       user = msg.from_user
        await msg.edit_text("""Hai {user.mention} 
 Iam An Advanced Bot With Awesome Features
 • I can Auto Approve Join Requests
