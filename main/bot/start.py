@@ -15,7 +15,12 @@ async def _start(b, m):
     await db.add_user(user.id)
 
     await m.reply(
-        text=f"""Hai {user.mention} 💞""",
+        text=f"""Hai {user.mention} 
+Iam An Advanced Bot With Awesome Features
+• I can Auto Approve Join Requests
+• I can Approve Pending Old Join Requests
+
+→ Click The Below Button To Setup Me""",
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("👤 SUPPORT", url="https://t.me/BETA_SUPPORT"),
             InlineKeyboardButton("📯 UPDATES", url="https://t.me/Beta_BoTZ")
