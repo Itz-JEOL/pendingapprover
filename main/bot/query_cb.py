@@ -37,6 +37,7 @@ Iam An Advanced Bot With Awesome Features
     ) 
    
     elif data == "settings":
+        user = msg.from_user
         await msg.edit_text(f"""Hey {user.mention}
 Change And SetUp Your Settings Here""",
         reply_markup=InlineKeyboardMarkup([[
