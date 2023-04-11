@@ -44,8 +44,7 @@ Iam An Advanced Bot With Awesome Features
 • THIS SETTINGS ARE FOR PENDING REQUEST APPROVE
 • SET YOUR USERBOT FOR ACTIVATE THIS FEATURE""",
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("CHATS", callback_data="chats"),
-            InlineKeyboardButton("USER", callback_data="user")
+            InlineKeyboardButton("« SETUP »", callback_data="setup"),
             ],[            
             InlineKeyboardButton("↩️ BACK", callback_data="start"),
         ]]),
@@ -70,7 +69,7 @@ Iam An Advanced Bot With Awesome Features
         disable_web_page_preview=True
     )
 
-    elif data == "addchat":
+    elif data == "setup":
        await msg.edit_text("")
 
     else:
